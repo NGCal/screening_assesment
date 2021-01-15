@@ -20,6 +20,13 @@ public class coursesSelection{
     @NotBlank(message="Field can't be empty")
     private String course3;
 
+    public void setid(Long id){
+        this.id = id;
+    }
+    public Long getid(){
+        return this.id;
+    }
+
     public void setcourse1(String name){
         this.course1 = name;
     }

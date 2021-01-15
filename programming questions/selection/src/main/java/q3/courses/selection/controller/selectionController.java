@@ -1,6 +1,7 @@
 package q3.courses.selection.controller;
 
 import q3.courses.selection.model.*;
+import q3.courses.selection.repository.*;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,11 +19,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 @Controller
 public class selectionController {
-    
+    //this will initialized the repository that will connect to the database
+    /*@Autowired
+    private final courseSelectionRepo repo;*/
+   
     
     @GetMapping("/")
     public String selectionForm(Model model,@RequestParam(defaultValue = "human") String name) {
@@ -57,6 +62,8 @@ public class selectionController {
 
             }
             else{
+                //This line will save the entry to the database
+                //repo.save(courses);
                 response.setValidated(true);
                 response.setCourse(courses);
             }
